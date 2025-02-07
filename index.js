@@ -49,14 +49,40 @@
 // 4)  Utiliza setTimeout para llamar a la función cuentaRegresiva cada 1000 milisegundos (1 segundo).
 // Resolución:
 
-let contador3 = 10;
+// let contador3 = 10;
 
-let cuentaRegresiva = setInterval (() => {
-    console.log (contador3);
-    contador3--;
-    if (contador3 <= 0) {
-        clearInterval (cuentaRegresiva);
-        console.log ("¡Tiempo finalizado!");
+// let cuentaRegresiva = setInterval (() => {
+//     console.log (contador3);
+//     contador3--;
+//     if (contador3 <= 0) {
+//         clearInterval (cuentaRegresiva);
+//         console.log ("¡Tiempo finalizado!");
+//     }
+// }, 1000);
+
+
+
+// Ejercicio 4: Intervalo de tareas - Tema: setInterval y clearInterval: Crea un programa que realice las siguientes tareas en intervalos de tiempo regulares: Muestre el mensaje "Tarea 1 realizada" en la consola cada 3 segundos - Muestre el mensaje "Tarea 2 realizada" en la consola cada 5 segundos - Después de 15 segundos, detén ambos intervalos utilizando clearInterval. Instrucciones:
+// 1) Utiliza setInterval para crear dos intervalos de tiempo: uno para la Tarea 1 (3 segundos) y otro para la Tarea 2 (5 segundos).
+// 2) Dentro de cada intervalo, muestra el mensaje correspondiente en la consola.
+// 3) Crea una variable llamada tiempoTranscurrido y inicialízala en 0.
+// 4) Dentro de uno de los intervalos (puedes elegir cualquiera), incrementa tiempoTranscurrido en el intervalo de tiempo correspondiente.
+// 5) Utiliza una condición if para verificar si tiempoTranscurrido es igual o mayor a 15 segundos. Si es así, detén ambos intervalos utilizando clearInterval.
+// Resolución:
+let tiempoTranscurrido = 0
+let intervaloTarea1 = setInterval (() => {
+    console.log ("Tarea 1 realizada");
+    console.log (tiempoTranscurrido);
+    tiempoTranscurrido++;
+    if (tiempoTranscurrido >= 15) {
+        clearInterval(intervaloTarea1);
+        clearInterval(intervaloTarea2);
     }
-}, 1000);
+}, 3000)
+
+let intervaloTarea2 = setInterval (() => {
+    console.log ("Tarea 2 realizada");
+}, 5000)
+
+
 
