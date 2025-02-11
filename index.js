@@ -69,20 +69,52 @@
 // 4) Dentro de uno de los intervalos (puedes elegir cualquiera), incrementa tiempoTranscurrido en el intervalo de tiempo correspondiente.
 // 5) Utiliza una condición if para verificar si tiempoTranscurrido es igual o mayor a 15 segundos. Si es así, detén ambos intervalos utilizando clearInterval.
 // Resolución:
-let tiempoTranscurrido = 0
-let intervaloTarea1 = setInterval (() => {
-    console.log ("Tarea 1 realizada");
-    console.log (tiempoTranscurrido);
-    tiempoTranscurrido++;
-    if (tiempoTranscurrido >= 15) {
-        clearInterval(intervaloTarea1);
-        clearInterval(intervaloTarea2);
-    }
-}, 3000)
+// let tiempoTranscurrido = 0
+// let intervaloTarea1 = setInterval (() => {
+//     console.log ("Tarea 1 realizada");
+//     console.log (tiempoTranscurrido);
+//     tiempoTranscurrido++;
+//     if (tiempoTranscurrido >= 15) {
+//         clearInterval(intervaloTarea1);
+//         clearInterval(intervaloTarea2);
+//     }
+// }, 3000)
 
-let intervaloTarea2 = setInterval (() => {
-    console.log ("Tarea 2 realizada");
-}, 5000)
+// let intervaloTarea2 = setInterval (() => {
+//     console.log ("Tarea 2 realizada");
+// }, 5000)
+
+
+// Ejercicio 5: Uso de Promesas - Tema: Manejo de promesas - Consigna: Crea funciones que utilicen promesas para resolver o rechazar con base en una condición. Instrucciones:
+// 1) Crea una función llamada eventoFuturo que reciba un parámetro res y retorne una promesa. La promesa debe resolverse con el mensaje "promesa resuelta" si res es true, y rechazarse con el mensaje "promesa rechazada" si res es false.
+// 2) Crea una función llamada resultado que reciba un parámetro salvado y retorne una promesa. La promesa debe resolverse con el mensaje "El paciente ha sido operado exitosamente" si salvado es true, y rechazarse con el mensaje "el paciente ha fallecido" si salvado es false.
+
+
+// Ejercicio 6: Bucle con setInterval y clearInterval - Tema: Temporizadores y bucles - Consigna: Crea un bucle que se ejecute con un intervalo específico y se detenga cuando se cumpla una condición. Instrucciones:
+// 1) Crea una variable llamada numeroInicial con el valor 1.
+// 2) Usa setInterval para incrementar la variable numeroInicial en 1 cada segundo.
+// 3) Detén el intervalo cuando numeroInicial alcance el valor de 20 e imprime "fin".
+
+let numeroInicial = 1;
+
+let intervaloNumero = setInterval (() => {
+    console.log (numeroInicial);
+    numeroInicial++
+
+    if (numeroInicial >= 21) {
+        clearInterval (intervaloNumero);
+        let intervalo2 = setTimeout (() => {
+            console.log ("fin");
+        }, 1000) 
+    }
+
+}, 1000);
+
+
+
+
+
+
 
 
 
