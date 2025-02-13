@@ -90,31 +90,108 @@
 // 2) Crea una función llamada resultado que reciba un parámetro salvado y retorne una promesa. La promesa debe resolverse con el mensaje "El paciente ha sido operado exitosamente" si salvado es true, y rechazarse con el mensaje "el paciente ha fallecido" si salvado es false.
 
 
+let eventoFuturo = (res) => {
+    return new Promise ((resolve, reject) => {
+        if (res === true) {
+            setTimeout (() => {
+                resolve (console.log ("promesa resuelta"));
+            }, 3000)  
+        }
+        else {
+            let contador = 0
+            let intervaloLocal = setInterval (() => {
+                if (contador <= 10) {
+                    console.log ("contador:" +contador)
+                    contador++
+                }
+                else {
+                    clearInterval (intervaloLocal);
+                    reject (console.log ("promesa rechazada"))
+                }
+            }, 2000)
+        }
+    }, 3000)
+}
+
+console.log (eventoFuturo(false));
+
+
 // Ejercicio 6: Bucle con setInterval y clearInterval - Tema: Temporizadores y bucles - Consigna: Crea un bucle que se ejecute con un intervalo específico y se detenga cuando se cumpla una condición. Instrucciones:
 // 1) Crea una variable llamada numeroInicial con el valor 1.
 // 2) Usa setInterval para incrementar la variable numeroInicial en 1 cada segundo.
 // 3) Detén el intervalo cuando numeroInicial alcance el valor de 20 e imprime "fin".
 
-let numeroInicial = 1;
+// let numeroInicial = 1;
 
-let intervaloNumero = setInterval (() => {
-    console.log (numeroInicial);
-    numeroInicial++
+// let intervaloNumero = setInterval (() => {
+//     console.log (numeroInicial);
+//     numeroInicial++
 
-    if (numeroInicial >= 21) {
-        clearInterval (intervaloNumero);
-        let intervalo2 = setTimeout (() => {
-            console.log ("fin");
-        }, 1000) 
-    }
+//     if (numeroInicial >= 21) {
+//         clearInterval (intervaloNumero);
+//         let intervalo2 = setTimeout (() => {
+//             console.log ("fin");
+//         }, 1000) 
+//     }
+// }, 1000);
 
-}, 1000);
+// Ejercicio 7: Repaso de Temporizadores y Promesas - Tema: Combinación de conceptos - Consigna: Crea programas que combinen el uso de setTimeout, setInterval y promesas. Instrucciones:
+// 1) Usa setTimeout para imprimir "hola" después de 4 segundos.
+// 2) Usa setInterval para imprimir "miguel golpea primero" y "robby se defiende" cada 3 segundos, y luego usa clearInterval para detenerlo.
+// 3) Crea una variable patada con el valor 1. Usa setInterval para incrementar patada en 1 cada segundo. Detén el intervalo cuando patada alcance el valor de 5 e imprime "finalizaste con las patadas".
+// 4) Crea una función taekwonDo que reciba un parámetro ok y retorne una promesa. La promesa debe resolverse con el mensaje "patada exitosa" si ok es true, y rechazarse con el mensaje "¡patada fallada!" si ok es false. Usa setTimeout dentro de la promesa para simular un retraso de 2 segundos antes de resolver o rechazar.
 
 
+// Ejercicio 8: Promesas con kickbooxing - Tema: Promesas - Consigna: Crea una función que devuelva una promesa basada en una condición. Instrucciones:
+// 1) Crea una función llamada kickbooxing que reciba un parámetro success.
+// 2) La función debe retornar una promesa que, después de 2 segundos, se resuelva con el mensaje "¡Golpe exitoso!" si success es true, o se rechace con el mensaje "Golpe fallido" si success es false.
+// 3) Usa la función y maneja la promesa con .then y .catch para imprimir los mensajes correspondientes.
 
 
+// Ejercicio 9: Promesas con boxeo - Tema: Promesas - Consigna: Crea una función que devuelva una promesa basada en una condición. Instrucciones:
+// 1) Crea una función llamada boxeo que reciba un parámetro exito.
+// 2) La función debe retornar una promesa que, después de 2 segundos, se resuelva con el mensaje "upperCut exitoso" si exito es true, o se rechace con el mensaje "knockout" si exito es false.
+// 3) Usa la función y maneja la promesa con .then y .catch para imprimir los mensajes correspondientes.
+
+// Ejercicio 10: Promesas con karate - Tema: Promesas - Consigna: Crea una función que devuelva una promesa basada en una condición. Instrucciones:
+// 1) Crea una función llamada karate que reciba un parámetro success.
+// 2) La función debe retornar una promesa que, después de 2 segundos, se resuelva con el mensaje "Patada alta exitosa" si success es true, o se rechace con el mensaje "patada alta fallida" si success es false.
+// 3) Usa la función y maneja la promesa con .then y .catch para imprimir los mensajes correspondientes.
 
 
+// Ejercicio 11: Temporizadores con setTimeout, setInterval y clearInterval - Tema: Temporizadores - Consigna: Crea temporizadores que se ejecuten con intervalos específicos y se detengan al cumplir una condición. Instrucciones:
+// 1) Crea una variable llamada contador con el valor 1.
+// 2) Usa setInterval para incrementar contador en 1 cada 2 segundos y detener el intervalo cuando contador alcance el valor de 10.
+// 3) Crea una variable llamada contador2 con el valor 10.
+// 4) Usa setInterval para incrementar contador2 en 1 cada segundo y detener el intervalo cuando contador2 alcance el valor de 20.
 
 
+//Ejercicio 12: Promesas con solicitudDeAmistad - Tema: Promesas - Consigna: Crea una función que devuelva una promesa basada en una condición. Instrucciones:
+// 1) Crea una función llamada solicitudDeAmistad que reciba un parámetro success.
+// 2) La función debe retornar una promesa que, después de 2 segundos, se resuelva con el mensaje "Solicitud de amistad aceptada" si success es true, o se rechace con el mensaje "Solicitud de amistad rechazada" si success es false.
+// 3) Usa la función y maneja la promesa con .then y .catch para imprimir los mensajes correspondientes.
+
+
+//Ejercicio 13: Promesas con futbol - Tema: Promesas - Consigna: Crea una función que devuelva una promesa basada en una condición. Instrucciones:
+// 1) Crea una función llamada futbol que reciba un parámetro success.
+// 2) La función debe retornar una promesa que, después de 2 segundos, se resuelva con el mensaje "gol" si success es true, o se rechace con el mensaje "gol fallido" si success es false.
+// 3) Usa la función y maneja la promesa con .then y .catch para imprimir los mensajes correspondientes.
+
+
+//Ejercicio 14: Promesas con truco - Tema: Promesas - Consigna: Crea una función que devuelva una promesa basada en una condición. Instrucciones:
+// 1) Crea una función llamada truco que reciba un parámetro success.
+// 2) La función debe retornar una promesa que, después de 1 segundo, se resuelva con el mensaje "quiero vale 4" si success es true, o se rechace con el mensaje "no quiero" si success es false.
+// 3) Usa la función y maneja la promesa con .then y .catch para imprimir los mensajes correspondientes.
+
+
+//Ejercicio 15: Promesas con sekaitaikai - Tema: Promesas - Consigna: Crea una función que devuelva una promesa basada en una condición. Instrucciones:
+// 1) Crea una función llamada sekaitaikai que reciba un parámetro success.
+// 2) La función debe retornar una promesa que, después de 1 segundo, se resuelva con el mensaje "Miguel wins" si success es true, o se rechace con el mensaje "Robby wins" si success es false.
+// 3) Usa la función y maneja la promesa con .then y .catch para imprimir los mensajes correspondientes.
+
+// Mini-desafío: Escribe una función que simule hacer un pedido en línea y devuelve una promesa que se resuelve después de 3 segundos con el mensaje "Pedido completado".
+
+// let pedidosYa = new Promise((resolve, reject) => {
+//     resolve (console.log ("pedido completado"));
+// }, 3000)
 
