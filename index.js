@@ -90,30 +90,30 @@
 // 2) Crea una función llamada resultado que reciba un parámetro salvado y retorne una promesa. La promesa debe resolverse con el mensaje "El paciente ha sido operado exitosamente" si salvado es true, y rechazarse con el mensaje "el paciente ha fallecido" si salvado es false.
 
 
-let eventoFuturo = (res) => {
-    return new Promise ((resolve, reject) => {
-        if (res === true) {
-            setTimeout (() => {
-                resolve (console.log ("promesa resuelta"));
-            }, 3000)  
-        }
-        else {
-            let contador = 0
-            let intervaloLocal = setInterval (() => {
-                if (contador <= 10) {
-                    console.log ("contador:" +contador)
-                    contador++
-                }
-                else {
-                    clearInterval (intervaloLocal);
-                    reject (console.log ("promesa rechazada"))
-                }
-            }, 2000)
-        }
-    }, 3000)
-}
+// let eventoFuturo = (res) => {
+//     return new Promise ((resolve, reject) => {
+//         if (res === true) {
+//             setTimeout (() => {
+//                 resolve (console.log ("promesa resuelta"));
+//             }, 3000)  
+//         }
+//         else {
+//             let contador = 0
+//             let intervaloLocal = setInterval (() => {
+//                 if (contador <= 10) {
+//                     console.log ("contador:" +contador)
+//                     contador++
+//                 }
+//                 else {
+//                     clearInterval (intervaloLocal);
+//                     reject (console.log ("promesa rechazada"))
+//                 }
+//             }, 2000)
+//         }
+//     }, 3000)
+// }
 
-console.log (eventoFuturo(false));
+// console.log (eventoFuturo(false));
 
 
 // Ejercicio 6: Bucle con setInterval y clearInterval - Tema: Temporizadores y bucles - Consigna: Crea un bucle que se ejecute con un intervalo específico y se detenga cuando se cumpla una condición. Instrucciones:
@@ -140,6 +140,40 @@ console.log (eventoFuturo(false));
 // 2) Usa setInterval para imprimir "miguel golpea primero" y "robby se defiende" cada 3 segundos, y luego usa clearInterval para detenerlo.
 // 3) Crea una variable patada con el valor 1. Usa setInterval para incrementar patada en 1 cada segundo. Detén el intervalo cuando patada alcance el valor de 5 e imprime "finalizaste con las patadas".
 // 4) Crea una función taekwonDo que reciba un parámetro ok y retorne una promesa. La promesa debe resolverse con el mensaje "patada exitosa" si ok es true, y rechazarse con el mensaje "¡patada fallada!" si ok es false. Usa setTimeout dentro de la promesa para simular un retraso de 2 segundos antes de resolver o rechazar.
+
+setTimeout ( function decirHola () {
+    console.log ("hola");
+}, 4000);
+
+let contador = 0
+let cobraKai = setInterval (function miguelVsrobby() {
+        console.log ("miguel golpea primero");
+        console.log ("robby se defiende");
+}, 3000)
+setTimeout (() => {
+    clearInterval (cobraKai);
+}, 4000)
+
+let taekwonDo = (ok) => {
+    return new Promise ((resolve, reject) => {
+        setTimeout (() => {
+            if (ok === true) {
+                resolve (console.log("Patada exitosa"));
+            }
+            else {
+                reject ("patada fallada")
+            }
+        }, 2000);
+    })
+}
+
+taekwonDo(true)
+.then ((conectada) => {
+    console.log ("Eso es " +conectada);
+})
+.catch ((bloqueada) => {
+    console.error (bloqueada);
+})
 
 
 // Ejercicio 8: Promesas con kickbooxing - Tema: Promesas - Consigna: Crea una función que devuelva una promesa basada en una condición. Instrucciones:
